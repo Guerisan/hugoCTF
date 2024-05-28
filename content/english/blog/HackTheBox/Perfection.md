@@ -1,5 +1,5 @@
 ---
-title: HackTheBox - Perfection:Level2 
+title: HackTheBox - Perfection
 meta_title: ""
 description: this is meta description
 date: 2024-05-28T05:00:00Z
@@ -15,7 +15,7 @@ tags:
 draft: false
 ---
 
-# HackTheBox - Perfection:level2 
+# HackTheBox - Perfection
 
 Cette box, de difficulté **Easy**, nous plonge dans une **application web en Ruby** qui hébérge une application _"créée par des étudiants"_. 
 
@@ -54,3 +54,7 @@ Lorsque l'on cherche à privesc, on effectue généralement ue recherche de fich
 Afin de réaliser un brute-force, il existe plusieurs outils pour cela et donc plusieurs tutoriels qui peuvent être disponible sur internet. 
 
 Néanmoins, il est également possible de scripter son propre outil pour brute-force un hash. 
+
+# Accéder au write-up complet
+
+{{< button label="Button" class="level-3" link="/" style="solid" >}}
