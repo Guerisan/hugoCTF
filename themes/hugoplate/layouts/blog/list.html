@@ -16,7 +16,7 @@
                 </div>
               {{ end }}
               {{ if gt $paginator.TotalPages 1 }}
-                {{ partial "components/pagination.html" $paginator }}
+                {{ partial "components/pagination.html" (dict "Paginator" $paginator) }}
               {{ end }}
             {{ else }}
               <p>No posts found.</p>
