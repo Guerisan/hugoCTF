@@ -1,5 +1,5 @@
 ---
-title: HackTheBox - Perfection :/ level1 
+title: HackTheBox - Perfection:Level1 
 meta_title: ""
 description: this is meta description
 date: 2024-05-28T05:00:00Z
@@ -15,7 +15,7 @@ tags:
 draft: false
 ---
 
-# HackTheBox - Perfection : level1 
+# HackTheBox - Perfection:level1 
 
 Cette box, de difficulté **Easy**, nous plonge dans une **application web en Ruby** qui hébérge une application _"créée par des étudiants"_. 
 
