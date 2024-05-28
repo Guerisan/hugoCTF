@@ -44,9 +44,9 @@ Il y a ainsi beaucoup de données à analyser. On peux tenter de taper quelques 
 Cela nous permet de voir que dans l'historique powershell, un fichier "hacked.ps1" a été supprimé.
 On sait que le deuxième flag est le nom d'une tâche, on recherche donc "New-ScheduledTask", la cmdlet Powershell associée à la création de tâches planifiées.
 On trouve la tâche qui a été crée : 
-![[Pasted image 20240424113156.png]]
+[task](Pasted image 20240424113156.png)
 En remontant, on trouve aussi le script qui a été supprimé, et ainsi la chaine de caractère : 
-![[Pasted image 20240424113342.png]]
+[chaine](Pasted image 20240424113342.png)
 
 Cette partie du hash est "chiffré". L'alternance de chiffre et de lettres majuscules et minuscules nous permet de dire qu'il s'agit probablement de base64.
 
