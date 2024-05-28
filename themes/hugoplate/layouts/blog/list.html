@@ -1,29 +1,36 @@
 {{ define "main" }}
   {{ partial "page-header" . }}
 
-
   <section class="section">
     <div class="container">
       <div class="row gx-5">
         <!-- blog posts -->
         <div class="lg:col-8">
           <div class="row">
-            {{ $paginator:= .Paginate .RegularPages }}
-            {{ range $paginator.Pages }}
-              <div class="md:col-6 mb-14">
-                {{ partial "components/blog-card" . }}
-              </div>
+            {{ $filteredPages := where .RegularPages "Params.isSecret" "!=" true }}
+            {{ if $filteredPages }}
+              {{ $paginator := .Paginate $filteredPages }}
+              {{ range $paginator.Pages }}
+                <div class="md:col-6 mb-14">
+                  {{ partial "components/blog-card" . }}
+                </div>
+              {{ end }}
+              {{ if gt $paginator.TotalPages 1 }}
+                {{ partial "components/pagination.html" $paginator }}
+              {{ end }}
+            {{ else }}
+              <p>No posts found.</p>
             {{ end }}
           </div>
-          {{ partial "components/pagination.html" . }}
         </div>
         <!-- sidebar -->
         <div class="lg:col-4">
           <!-- widget -->
-          {{ $widget:= site.Params.widgets.sidebar }}
+          {{ $widget := site.Params.widgets.sidebar }}
           {{ partialCached "widgets/widget-wrapper" ( dict "Widgets" $widget "Scope" . ) }}
         </div>
       </div>
     </div>
   </section>
 {{ end }}
+

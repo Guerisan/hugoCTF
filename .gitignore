@@ -17,3 +17,4 @@ go.sum
 yarn.lock
 .obsidian
 content/.obsidian
+content/.trash/

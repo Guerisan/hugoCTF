@@ -1,31 +1,25 @@
 ---
-title: Awesome forensic lvl 1 de CICD
+title: Darts Bank
 meta_title: ""
 description: this is meta description
 date: 2024-04-04T05:00:00Z
 image: /images/image-placeholder.png
 categories:
-  - Application
-  - Data
+  - 404CTF
+  - moyen
 author: John Doe
 tags:
-  - nextjs
-  - tailwind
+  - wireshark
+  - network
+  - forensic
+  - silicon
 draft: false
+isSecret: false
 ---
 
-Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
+{{< toc >}}
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+Un utilisateur s'est fait voler des secrets en se connectant à son site de fléchettes préféré, alors que sa connexion était sécurisée.
+Il pense cependant avoir remarqué des choses étranges sur le réseau, et nous fournit un fichier pcapng pour essayer d'en savoir un peu plus...
 
-{{< button label="Button" class="level-3" link="/" style="solid" >}}
-## Creative Design
-
-{{< image src="./android-chrome-512x512.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title"  webp="false" >}}
-
-
-Nam ut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
-
-> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vel ad consectetur ut aperiam. Itaque eligendi natus aperiam? Excepturi repellendus consequatur quibusdam optio expedita praesentium est adipisci dolorem ut eius!
+{{< button label="Voir write-up secret" link="/" class="level-3" style="solid" >}}
