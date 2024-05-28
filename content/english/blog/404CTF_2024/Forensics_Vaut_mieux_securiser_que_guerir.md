@@ -24,7 +24,7 @@ La 3 est encore en cours de construction mais est plus facile à utiliser et à 
 
 Avec volatility, on commence par faire un pstree.
 
-```sh
+```bash
 vol.py -f memory.dmp windows.pstree.PsTree
 ```
 
@@ -33,7 +33,7 @@ L'un d'entre eux sort du lot : on remarque un powershell suspect qui lance une s
 
 On extrait avec memmap le processus.
 
-```sh
+```bash
 vol.py -f memory.dmp windows.memmap.Memmap --pid 4852 
 ```
 
@@ -44,9 +44,10 @@ Il y a ainsi beaucoup de données à analyser. On peux tenter de taper quelques 
 Cela nous permet de voir que dans l'historique powershell, un fichier "hacked.ps1" a été supprimé.
 On sait que le deuxième flag est le nom d'une tâche, on recherche donc "New-ScheduledTask", la cmdlet Powershell associée à la création de tâches planifiées.
 On trouve la tâche qui a été crée : 
-[task](Pasted image 20240424113156.png)
+{{< image src="images/404CTF-Forensics-task.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}} 
+
 En remontant, on trouve aussi le script qui a été supprimé, et ainsi la chaine de caractère : 
-[chaine](Pasted image 20240424113342.png)
+{{< image src="images/404CTF-Forensics-string.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
 
 Cette partie du hash est "chiffré". L'alternance de chiffre et de lettres majuscules et minuscules nous permet de dire qu'il s'agit probablement de base64.
 
