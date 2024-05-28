@@ -48,7 +48,6 @@
       </span>
     {{ end }}
 
-
     <!-- Page numbers -->
     {{ range $paginator.Pagers }}
       {{ $.Scratch.Set "page_number_flag" false }}
@@ -98,7 +97,6 @@
       {{ end }}
     {{ end }}
 
-
     <!-- Next page. -->
     {{ if $paginator.HasNext }}
       <a
@@ -136,3 +134,4 @@
     {{ end }}
   </nav>
 {{ end }}
+
