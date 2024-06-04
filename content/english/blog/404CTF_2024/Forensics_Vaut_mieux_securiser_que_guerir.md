@@ -5,8 +5,8 @@ description: this is meta description
 date: 2024-04-04T05:00:00Z
 image: /images/404CTF_logo.png
 categories:
-  - Application
-  - Data
+  - Forensic
+  - Medium
 author: Emma.exe
 tags:
   - forensic
