@@ -1,9 +1,9 @@
 #################### default parameters ################################
 # favicon module: https://github.com/gethugothemes/hugo-modules/tree/master/images#favicon-implementation
-favicon = "images/favicon.png"
+favicon = "images/banner_transparency_smoll.PNG"
 # logo module: https://github.com/gethugothemes/hugo-modules/tree/master/images#logo-implementation
-logo = "images/logo.png"
-logo_darkmode = "images/logo-darkmode.png"
+logo = "images/banner_transparency_smoll.PNG"
+logo_darkmode = "images/banner_transparency_smoll.PNG"
 # use `px` or `x` with logo_width, example: "100px".
 # Note: logo_width is not work with .svg file
 logo_width = "160px"
@@ -34,12 +34,6 @@ copyright = "Designed & Developed by [Zeon Studio](https://zeon.studio)"
 [preloader]
 enable = false
 preloader = "" # use jpg, png, svg or gif format.
-
-# Navigation button
-[navigation_button]
-enable = true
-label = "get a quote"
-link = "contact"
 
 # search
 # search module: https://github.com/gethugothemes/hugo-modules/tree/master/search
