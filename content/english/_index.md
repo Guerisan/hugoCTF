@@ -4,6 +4,10 @@ banner:
   title: "**Capture The Flag** *for Beginners*"
   content: "Ce site a pour objectif de fournir une base de connaissance pour les débutants en CTF, en fournissant des fiches techniques, des méthodologies mais aussi des write-up de challenges de plateformes connues tels que Root-me et Hack The Box."
   image: "/images/banner_transparency_smoll.PNG"
+  button:
+    enable: true
+    label: "Let's pwn"
+    link: "https://guerisan.github.io/hugoCTF/blog/"
 
 # Features
 features:
