@@ -1,9 +1,9 @@
 #################### default parameters ################################
 # favicon module: https://github.com/gethugothemes/hugo-modules/tree/master/images#favicon-implementation
-favicon = "images/banner_transparency_smoll.PNG"
+favicon = "images/robots.png"
 # logo module: https://github.com/gethugothemes/hugo-modules/tree/master/images#logo-implementation
-logo = "images/banner_transparency_smoll.PNG"
-logo_darkmode = "images/banner_transparency_smoll.PNG"
+logo = "images/robots.png"
+logo_darkmode = "images/robots.png"
 # use `px` or `x` with logo_width, example: "100px".
 # Note: logo_width is not work with .svg file
 logo_width = "160px"
