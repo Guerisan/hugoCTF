@@ -30,12 +30,12 @@ weight = 5
 [[main]]
 parent = "Fiches Pratiques"
 name = "Méthodes"
-pageRef = "/fiches/methods"
+pageRef = "/categories/methodes"
 
 [[main]]
 parent = "Fiches Pratiques"
 name = "Outils"
-pageRef = "/fiches/tools"
+pageRef = "/categories/outils"
 
 # footer menu
 [[footer]]
