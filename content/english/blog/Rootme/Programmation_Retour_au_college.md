@@ -3,7 +3,7 @@ title: Rootme - Retour au collège
 meta_title: ""
 description: this is meta description
 date: 2024-04-04T05:00:00Z
-image:
+image: /images/rootme_logo.png
 categories:
   - Rootme
 author: Alexis
