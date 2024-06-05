@@ -10,7 +10,7 @@
 
   dropdownMenuToggler.forEach((toggler) => {
     toggler?.addEventListener("click", (e) => {
-      e.target.closest('.nav-item').classList.toggle("active");
+      e.target.closest(".nav-item").classList.toggle("active");
     });
   });
 
@@ -36,40 +36,41 @@
 })();
 
 async function sha1(message) {
-    // Convert the message string to a Uint8Array
-    const msgBuffer = new TextEncoder().encode(message);
+  // Convert the message string to a Uint8Array
+  const msgBuffer = new TextEncoder().encode(message);
 
-    // Hash the message
-    const hashBuffer = await crypto.subtle.digest('SHA-1', msgBuffer);
+  // Hash the message
+  const hashBuffer = await crypto.subtle.digest("SHA-1", msgBuffer);
 
-    // Convert ArrayBuffer to Array
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
+  // Convert ArrayBuffer to Array
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
 
-    // Convert bytes to hex string
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    return hashHex;
+  // Convert bytes to hex string
+  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join(
+    "",
+  );
+  return hashHex;
 }
 
-
-let button = document.getElementsByClassName('level-3');
+const button = document.getElementsByClassName("level-3");
 
 if (button) {
-  button[0].addEventListener('click', function (e) {
+  button[0].addEventListener("click", function (e) {
     e.preventDefault();
-    let password = prompt("The password :");
-    console.log(password)
-    login(password)
-  })
+    const password = prompt("The password :");
+    console.log(password);
+    login(password);
+  });
 }
 
 function login(secret) {
-  sha1(secret).then(hash => {
+  sha1(secret).then((hash) => {
     console.log("hash:", hash);
-    var url = "/hugoCTF/blog/" + hash
+    const url = "/hugoCTF/blog/" + hash;
     console.log(window.location.origin + url);
-    var request = new XMLHttpRequest();
-    request.open('GET', url, true);
-    console.log("Good");
+    const request = new XMLHttpRequest();
+
+    request.open("GET", url, true);
     request.onload = function () {
       if (request.status >= 200 && request.status < 400) {
         window.location = window.location.origin + url;
@@ -78,8 +79,7 @@ function login(secret) {
       }
     };
     request.send();
-  }).catch(error => {
+  }).catch((error) => {
     console.error("Error hashing password:", error);
   });
 }
-

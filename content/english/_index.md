@@ -7,7 +7,7 @@ banner:
   button:
     enable: true
     label: "Let's pwn"
-    link: "https://guerisan.github.io/hugoCTF/blog/"
+    link: "blog/"
 
 # Features
 #features:
