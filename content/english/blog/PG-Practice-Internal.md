@@ -6,7 +6,7 @@ date: 2024-04-04T05:00:00Z
 image: /images/offsec-banner.jpg
 categories:
   - Réaliste
-  - Easy
+  - Facile
 author: Emma.exe
 tags:
   - realiste
