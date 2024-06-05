@@ -3,10 +3,10 @@ title: PG-Practice Internal
 meta_title: ""
 description: La box Internal est une box proposée par l'Offsec dans sa catégorie PG-Practice. Il s'agit d'une box Windows Easy exploitant une vulnérabilité SMB peu connue. Elle ne requiert pas d'élévation de privilèges.
 date: 2024-04-04T05:00:00Z
-image: /images/404CTF_logo.png
+image: /images/offsec-banner.jpg
 categories:
   - Réaliste
-  - Easy
+  - Facile
 author: Emma.exe
 tags:
   - realiste

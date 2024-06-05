@@ -22,6 +22,20 @@ name = "Categories"
 pageRef = "/categories"
 weight = 4
 
+[[main]]
+name = "Fiches Pratiques"
+pageRef = "/fiches"
+weight = 5
+
+[[main]]
+parent = "Fiches Pratiques"
+name = "Méthodes"
+pageRef = "/methods"
+
+[[main]]
+parent = "Fiches Pratiques"
+name = "Outils"
+pageRef = "/tools"
 
 # footer menu
 [[footer]]
