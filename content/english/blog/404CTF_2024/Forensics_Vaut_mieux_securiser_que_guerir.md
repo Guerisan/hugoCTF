@@ -6,7 +6,7 @@ date: 2024-04-04T05:00:00Z
 image: /images/404CTF_logo.png
 categories:
   - Forensic
-  - Medium
+  - Moyen
 author: Emma.exe
 tags:
   - forensic
