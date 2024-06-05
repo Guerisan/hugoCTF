@@ -30,7 +30,7 @@ weight = 5
 [[main]]
 parent = "Fiches Pratiques"
 name = "Méthodes"
-pageRef = "/categories/methodes"
+pageRef = "/categories/méthodes"
 
 [[main]]
 parent = "Fiches Pratiques"
