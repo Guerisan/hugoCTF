@@ -54,6 +54,7 @@ async function sha1(message) {
 
 const button = document.getElementsByClassName("level-3");
 
+
 if (button) {
   button[0].addEventListener("click", function (e) {
     e.preventDefault();
@@ -66,7 +67,9 @@ if (button) {
 function login(secret) {
   sha1(secret).then((hash) => {
     console.log("hash:", hash);
-    const url = "/hugoCTF/blog/" + hash;
+    const currentUrl = window.location.pathname;
+    let newUrl = currentUrl.replace(/\/[^\/]*\/?$/, "");
+    const url = newUrl + "/" + hash;
     console.log(window.location.origin + url);
     const request = new XMLHttpRequest();
 
