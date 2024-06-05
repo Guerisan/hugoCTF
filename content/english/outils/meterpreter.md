@@ -3,14 +3,15 @@ title: Meterpreter
 meta_title: ""
 description: Meterpreter est un framwork très utile pour le pentest et le CTF qu'il faut apprendre à maitriser.
 date: 2024-04-04T05:00:00Z
-image: /images/offsec-banner.jpg
+image: /images/logo_meterpreter.png
 categories:
   - Outils
 author: Emma.exe
 tags:
   - outils
   - meterpreter
-  - offsec
+  - rapid7
+  - metasploit
 draft: false
 ---
 
