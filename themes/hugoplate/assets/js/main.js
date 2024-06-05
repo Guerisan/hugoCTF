@@ -68,7 +68,7 @@ function login(secret) {
   sha1(secret).then((hash) => {
     console.log("hash:", hash);
     const currentUrl = window.location.pathname;
-    let newUrl = currentUrl.replace(/\/[^\/]*$/, "");
+    let newUrl = currentUrl.replace(/\/[^\/]*\/?$/, "");
     const url = newUrl + "/" + hash;
     console.log(window.location.origin + url);
     const request = new XMLHttpRequest();
