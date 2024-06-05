@@ -1,53 +1,21 @@
 ---
 # Banner
 banner:
-  title: "Les write-ups du Groupe 4"
-  content: "Ici nous mettons en commun les ressources, write-ups et outils utiles à la résolutions de challenges de cybersécurité"
-  image: "/images/banner.png"
+  title: "**Capture The Flag** *for Beginners*"
+  content: "Ce site a pour objectif de fournir une base de connaissance pour les débutants en CTF, en fournissant des fiches techniques, des méthodologies mais aussi des write-up de challenges de plateformes connues tels que Root-me et Hack The Box."
+  image: "/images/banner_transparency_smoll.PNG"
   button:
     enable: true
     label: "Let's pwn"
     link: "blog/"
 
 # Features
-#features:
-#  - title: "What's Included in Hugoplate"
-#    image: "/images/service-1.png"
-#    content: "Hugoplate is a comprehensive starter template that includes everything you need to get started with your Hugo project. What's Included in Hugoplate"
-#    bulletpoints:
-#      - "10+ Pre-build pages"
-#      - "95+ Google Pagespeed Score"
-#      - "Build with Hugo and TailwindCSS for easy and customizable styling"
-#      - "Fully responsive on all devices"
-#      - "SEO-optimized for better search engine rankings"
-#      - "**Open-source and free** for personal and commercial use"
-#    button:
-#      enable: false
-#      label: "Get Started Now"
-#      link: "#"
-
-#  - title: "Discover the Key Features Of Hugo"
-#    image: "/images/service-2.png"
-#    content: "Hugo is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
-#    bulletpoints:
-#      - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-#      - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
-#      - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
-#    button:
-#      enable: true
-#      label: "Get Started Now"
-#      link: "https://github.com/zeon-studio/hugoplate"
-
-#  - title: "The Top Reasons to Choose Hugo for Your Hugo Project"
-#    image: "/images/service-3.png"
-#    content: "With Hugo, you can build modern and content-focused websites without sacrificing performance or ease of use."
-#    bulletpoints:
-#      - "Instantly load static sites for better user experience and SEO."
-#      - "Intuitive syntax and support for popular frameworks make learning and using Hugo a breeze."
-#      - "Use any front-end library or framework, or build custom components, for any project size."
-#      - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
-#    button:
-#      enable: false
-#      label: ""
-#      link: ""
+features:
+  - title: "Ce que vous allez trouver sur ce site"
+    image: "/images/services.png"
+    bulletpoints:
+      - "Des fiches techniques pour apprendre à utiliser des outils connus"
+      - "Des méthodologies pour savoir comment réagir en fonction de chaque catégorie de CTF"
+      - "Des write-up explicatifs permettant d'appréhender des challenges spécifiques de façon accompagnée"
+      - "Une liste de challenges a faire en fonction de son niveau"
 ---
