@@ -120,9 +120,9 @@ http://intranet.fsociety.hack:2600 [200 OK] Apache[2.4.59], Country[RESERVED][ZZ
 Ou encore des extensions de navigateur comme [Wappalyzer](https://www.wappalyzer.com/)
 ## Exploitation / Escalation priv
 
-Une seconde phase d'énumération est très souvent nécessaire dès que l'on a obtenu un accès à une nouvelle machine ou un à utilisateur avec des privilèges supplémentaires.  
-
 ## Énumération post escalation
+
+Une seconde phase d'énumération est très souvent nécessaire dès que l'on a obtenu un accès à une nouvelle machine ou un à utilisateur avec des privilèges supplémentaires.  
 
 ### Techniques manuelles 
 
