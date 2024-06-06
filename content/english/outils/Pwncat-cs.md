@@ -1,5 +1,5 @@
 ---
-title: Sniffing de password avec PAM 
+title: Stop using netcat, use Pwncat-cs
 meta_title: ""
 description: Petite documentationn d'utilisation d'un fancy rev et bind handler
 date: 2024-04-04T05:00:00Z
