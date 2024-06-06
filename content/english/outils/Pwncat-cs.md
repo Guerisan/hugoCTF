@@ -57,8 +57,6 @@ pwncat-cs -lp 4444
 
 {{< image src="images/methode_pwncat1.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
 
-![[methode_pwncat1.png]]
-
 L'indication **(local)** vous indique que vous êtes encore sur votre machine. Avec `CTRL + D` vous pourrez alors passer en **(remote)** et avoir accès à la machine distante. 
 
 La commande `help` est bien détaillée, vous pouvez aussi l'utiliser pour chaque commande dispo comme `help connect` par exemple. Sinon, vous pouvez retrouver plus de détails pour chaque commande [ici](https://pwncat.readthedocs.io/en/latest/commands/index.html).  
@@ -161,8 +159,6 @@ Source : https://pwncat.readthedocs.io/en/latest/modules.html
 Il est aussi possible d'utiliser la commande `escalate` pour trouver des techniques d'élévation de privilèges, mais je ne sais pas trop ce que ça donne : 
 
 {{< image src="images/methode_pwncat2.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-
-![[Pasted image 20240606151354.png]]
 
 Et utiliser `escalate run` pour exécuter cette escalade de privilège.  
 
