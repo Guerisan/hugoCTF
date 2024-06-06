@@ -24,7 +24,7 @@ Prérequis :
 
 Après avoir constaté que vous remplissez les conditions requises, vous remarquez qu'à chaque execution de la tâche planifiée, une ligne comme celle-ci apparait :
 
-methode_sniffing_pam1.png
+{{< image src="images/methode_sniffing_pam1.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
 
 Ce qui signifie qu'une une authentification s'effectue avec l'utilisateur root ou un autre utilisateur avec `su`. 
 
