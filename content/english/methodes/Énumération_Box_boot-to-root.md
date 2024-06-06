@@ -5,10 +5,10 @@ description: Article d'aide pour la première approche des box de type boot to r
 date: 2024-04-04T05:00:00Z
 image: /images/born-to-be-root.jpg
 categories:
-  - Methodes
+  - Méthodes
 author: Tmax
 tags:
-  - Methodes
+  - Méthodes
   - Fiches
 draft: false
 ---
