@@ -78,7 +78,7 @@ fi
 
 IF DONE : 
 
-```
+```sh
 ┌──(tmax㉿kali)-[~/tools]
 └─$ volatility       
 Volatility Foundation Volatility Framework 2.6.1
@@ -101,23 +101,26 @@ sudo rm -f /usr/local/bin/volatility
 avant d'installer pycrypto :
 `sudo apt-get install python3-dev`
 
-```
+```sh
 sudo apt install -y python3 python3-dev libpython3-dev python3-pip python3-setuptools python3-wheel
 ```
 
-```
+```sh
 python3 -m pip install -U distorm3 yara pycrypto pillow openpyxl ujson pytz ipython capstone 
 python3 -m pip install -U git+https://github.com/volatilityfoundation/volatility3.git
 ```
- if issue, replace yara par yara-python 
- replace pycrypto par pycryptodome
+
+{{< notice "note" >}}
+if issue, replace yara par yara-python 
+replace pycrypto par pycryptodome
+{{< /notice >}}
 
 add `/home/username/.local/bin` to PATH 
 
 
 IF DONE : 
 
-```
+```sh
 ┌──(tmax㉿kali)-[~/tools]
 └─$ vol                  
 Volatility 3 Framework 2.7.0
@@ -137,45 +140,45 @@ volatility: error: Please select a plugin to run
 # CMDLIST
 
 ### What type of dump am I going to analyze ?
-```
+```sh
  volatility -f MyDump.dmp imageinfo
 ```
 
 ### Which process are running
-```
+```sh
 volatility -f MyDump.dmp --profile=MyProfile pslist
 volatility -f MyDump.dmp --profile=MyProfile pstree
 volatility -f MyDump.dmp --profile=MyProfile psxview
 ```
 
 ### List open TCP/UDP connections
-```
+```sh
 volatility -f MyDump.dmp --profile=MyProfile connscan
 volatility -f MyDump.dmp --profile=Win10x64_19041  sockets
 volatility -f MyDump.dmp --profile=MyProfile netscan
 ```
 
 ### What commands were lastly run on the computer
-```
+```sh
 volatility -f MyDump.dmp --profile=MyProfile cmdline
 volatility -f MyDump.dmp --profile=MyProfile consoles
 volatility -f MyDump.dmp --profile=MyProfile cmdscan
 ```
 
 ### Dump processes exe and memory 
-```
+```sh
 volatility -f MyDump.dmp --profile=MyProfile procdump -p MyPid --dump-dir .
 volatility -f MyDump.dmp --profile=MyProfile memdump -p MyPid --dump-dir .
 ```
 
 ### Hive and Registry key values
-```
+```sh
 volatility -f MyDump.dmp --profile=MyProfile hivelist
-$ volatility -f MyDump.dmp --profile=MyProfile printkey -K "MyPath"
+volatility -f MyDump.dmp --profile=MyProfile printkey -K "MyPath"
 ```
 
 ### Example 
-```
+```sh
 python2.7 vol.py -f memdump.mem --profile=Win10x64_19041 hivelist
 ```
 
@@ -187,7 +190,7 @@ Cette épreuve consistait à **récupérer le password** de l’utilisateur *
 
 Le **RID** (Relatif ID) est la dernière partie du **SID** ([Security Identifier](https://fr.wikipedia.org/wiki/Security_Identifier)). Chaque entité effectuant des actions sur la machine se voit attribué un [SID](https://fr.wikipedia.org/wiki/Security_Identifier). Le password que l’on cherche est celui hashé en **NTLM_HASH**. La commande pour récupérer les hash de password sous volatility:
 
-```
+```sh
 volatility.exe -f le_fichier --profie=Win7SP1x64 hashdump -y SYSTEM_OFFSET -s SAM_OFFSET
 ```
 
