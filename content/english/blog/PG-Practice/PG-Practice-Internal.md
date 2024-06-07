@@ -20,13 +20,38 @@ draft: false
 La box Internal est une box proposée par l'Offsec dans sa catégorie PG-Practice.
 Il s'agit d'une box Windows Easy exploitant une vulnérabilité SMB peu connue.
 Elle ne requiert pas d'élévation de privilèges.
+
+Pour la résolution de ce challenge je vous propose deux niveaux d'aide : 
+- Le premier niveau sous la forme d'indices et de ressources à explorer pour résoudre le challenge, sans pour autant donner la solution
+- Le deuxième niveau qui présente un exemple de résolution.
+
+{{< notice "tip" >}} Essayez de ne pas regarder la solution si vous voulez vraiment progresser. Une fois le challenge résolu, il peut être intéressant de la regarder pour apprendre de nouvelles techniques ! {{< /notice >}}
+
+
 # Enumération
 
+{{< tabs >}} {{< tab "Niveau 1" >}}
 On commence toujours par énumérer la machine avec nmap.
-J'utilise les options suivantes : 
+Veillez à bien énumérer tous les ports de la machine pour être sûrs de ne rien manquer.
+En effet, il est courant que les créateurs des box modifient les ports par défaut.
+Ainsi, on peut très bien trouver un site web sur le port 8080 par exemple.
+
+Une fois que vous possédez une meilleure connaissance de votre machine, des services qui tournent etc, vous pouvez partir à la recherche de vulnérabilités.
+
+Il est important d'énumérer la machine **entièrement** avant de passer à la phase d'exploitaiton pour éviter de perdre trop de temps.
+
+Si vous ne trouvez pas de vulnérabilités, c'est certainement que vous n'avez pas assez énumérer.
+
+Pour la recherche de vulnérabilités, connaissez-vous **Nmap Script Engine (NSE)** ?
+
+{{< /tab >}}
+
+{{< tab "Niveau 2" >}}
+Pour l'énumération, j'utilise les options suivantes : 
 - `-p-` pour énumérer tous les ports
 - `-sV` pour obtenir les versions des services
 
+Résultats :
 ```sh
 nmap -p- 192.168.242.40 -sV            
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-06-02 09:26 EDT
@@ -53,13 +78,13 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 96.70 seconds
 ```
 
-Il ny a rien de particulier d'ouvert, on peut tester si la vulnérabilité MS10 17 (eternal blue) est présente sur la machine : 
+Il n'y a rien de particulier d'ouvert, on peut tester si la vulnérabilité MS10 17 (eternal blue) est présente sur la machine : 
 ```sh
 nmap -p445 --script smb-vuln-ms17-010 192.168.242.40
 ```
 
 C'est effectivement vulnérable !
-Cependant, il est important d'énumérer la machine entièrement avant de passer à la phase d'exploitation.
+**Cependant**, il est important d'énumérer la machine entièrement avant de passer à la phase d'exploitation.
 
 Nous allons donc effectuer un autre scan de vulnérabilité plus généraliste avec nmap : 
 ```sh
@@ -86,10 +111,26 @@ Host script results:
 
 ```
 
-On voit que la machine est aussi vulnérable à la faille "SMBv2 Negotiation Vulnerability" c'est-à-dire la CVE-2009-3103. Il est plus probable que ce soit cette vulnérabilité-là que l'auteur de la box veut nous faire exploiter.
+On voit que la machine est aussi vulnérable à la faille "**SMBv2 Negotiation Vulnerability**" c'est-à-dire la **CVE-2009-3103**. Il est plus probable que ce soit cette vulnérabilité-là que l'auteur de la box veut nous faire exploiter.
 En effet, elle est très intéressante puisqu'elle va permettre d'effectuer une RCE (Remote Execution Code) et potentiellement nous permettre d'obtenir un shell interactif. 
+{{< /tab >}}
+{{< /tabs >}}
+
 # Recherche d'exploit
 
+
+{{< tabs >}} {{< tab "Niveau 1" >}}
+
+Afin de rechercher des exploits, vous pouvez utiliser la commande : `searchsploit`.
+Searchsploit est un outil en ligne de commande qui permet de rechercher et télécharger des exploits depuis le site exploit-db.
+
+Afin de faire une recherche efficace, n'hésitez pas à varier vos mots-clefs. Souvent une vulnérabilité porte plusieurs noms.
+Sur exploit-db, il est rare de trouver les noms des CVE.
+
+Autre ressource : Nous avons créer une documentation Meterpreter si vous souhaitez l'utiliser pour résoudre ce challenge : [Meterpreter](../../fiche/meterpreter)
+
+{{< /tab >}}
+{{< tab "Niveau 2" >}}
 Afin de trouver un exploit, je commence par me renseigner sur la vulnérabilité.
 Premièrement, les vulnérabilités Windows sont souvent appelés par l'indicatif Microsoft.
 Dans notre cas, on voit qu'elle est aussi appelé "MS09-050".
@@ -105,9 +146,21 @@ Ici il n'y en a qu'un seul vérifié, disponible ici :
 https://www.exploit-db.com/exploits/16363
 
 Il s'agit d'un module Metasploit.
+{{< /tab >}}
+{{< /tabs >}}
 
 # Exploitation
 
+{{< tabs >}} {{< tab "Niveau 1" >}}
+
+Pour la phase d'exploitaion, veillez à bien renseigner les options dont nécessite l'exploit que vous souhaitez utiliser.
+
+Si celui-ci a besoin de notre IP locale, pensez à renseigner celui de l'interface vers le réseau de l'Offsec.  
+
+Enfin, il existe de nombreux exploits pour une seule faille. Si le premier ne fonctionne pas, tentez-en un autre. 
+
+{{< /tab >}}
+{{< tab "Niveau 2" >}}
 Nous lançons donc Metasploit en sudo :
 ```sh
 sudo msfconsole
@@ -149,3 +202,6 @@ run
 ```
 
 Au bout de quelques instants, on obtient un shell et on récupère le flag qui se trouve toujours sur le bureau Administrateur.
+
+{{< /tab >}}
+{{< /tabs >}}
