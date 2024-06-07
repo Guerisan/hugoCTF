@@ -1,3 +1,17 @@
+---
+title: Rootme - Uncompress me
+meta_title: ""
+description: this is meta description
+date: 2024-04-04T05:00:00Z
+image: /images/rootme_logo.png
+categories:
+  - Rootme
+  - Facile
+author: Alexis
+tags:
+  - programmation
+draft: false
+---
 
 # Niveau 0
 Ce challenge permet de pratiquer la connexion à une socket réseau et manipuler les chaînes de caractères compressées et encodées.
