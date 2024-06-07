@@ -3,7 +3,7 @@ title: PG-Practice - Squid
 meta_title: ""
 description: Squid est une box Offsec d'entrainement
 date: 2024-06-06T05:00:00Z
-image: /images/logo_meterpreter.png
+image: /images/offsec-banner.jpg
 categories:
   - Réaliste
   - Facile
