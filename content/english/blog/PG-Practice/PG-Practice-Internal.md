@@ -15,7 +15,7 @@ tags:
 draft: false
 ---
 
-# Introduction
+## Introduction
 
 La box Internal est une box proposée par l'Offsec dans sa catégorie PG-Practice.
 Il s'agit d'une box Windows Easy exploitant une vulnérabilité SMB peu connue.
@@ -28,7 +28,7 @@ Pour la résolution de ce challenge je vous propose deux niveaux d'aide :
 {{< notice "tip" >}} Essayez de ne pas regarder la solution si vous voulez vraiment progresser. Une fois le challenge résolu, il peut être intéressant de la regarder pour apprendre de nouvelles techniques ! {{< /notice >}}
 
 
-# Enumération
+## Enumération
 
 {{< tabs >}} {{< tab "Niveau 1" >}}
 On commence toujours par énumérer la machine avec nmap.
@@ -116,7 +116,7 @@ En effet, elle est très intéressante puisqu'elle va permettre d'effectuer une 
 {{< /tab >}}
 {{< /tabs >}}
 
-# Recherche d'exploit
+## Recherche d'exploit
 
 
 {{< tabs >}} {{< tab "Niveau 1" >}}
@@ -149,7 +149,7 @@ Il s'agit d'un module Metasploit.
 {{< /tab >}}
 {{< /tabs >}}
 
-# Exploitation
+## Exploitation
 
 {{< tabs >}} {{< tab "Niveau 1" >}}
 
