@@ -52,7 +52,7 @@ Pour un usage basique, voici la section "Basic usage" de la [documentation](http
 Pour ce qui est d'un simple reverse shell : 
 
 ```bash
-pwncat-cs -lp 4444
+pwncat-cs -lp 1234  
 ```
 
 {{< image src="images/methode_pwncat1.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
@@ -156,7 +156,7 @@ Source : https://pwncat.readthedocs.io/en/latest/modules.html
 
 ## Escalade de privilège
 
-Il est aussi possible d'utiliser la commande `escalate` pour trouver des techniques d'élévation de privilèges, mais je ne sais pas trop ce que ça donne : 
+Il est aussi possible d'utiliser la commande `escalate` pour trouver des techniques d'élévation de privilèges (jamais testé en CTF) : 
 
 {{< image src="images/methode_pwncat2.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
 
