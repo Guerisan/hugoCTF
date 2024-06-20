@@ -1,4 +1,44 @@
 // Add your own custom styles here
-html{
+html {
    scroll-behavior: smooth;
+}
+
+a {
+   font-weight: revert !important;
+}
+
+code {
+   padding: revert !important;
+
+   &::before,
+   &::after {
+      content: revert !important;
+   }
+}
+
+blockquote {
+   font-size: revert !important;
+   padding-top: 1rem !important;
+   padding-bottom: 1rem !important;
+}
+
+.highlight {
+   table {
+      tr {
+         >td:first-of-type {
+            pre {
+               background-color: #3c3d38 !important;
+            }
+         }
+      }
+
+      pre {
+         margin: auto !important;
+         border-radius: revert !important;
+      }
+   }
+
+   div:has(table pre) {
+      border-radius: 12px;
+   }
 }
