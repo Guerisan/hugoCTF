@@ -51,7 +51,7 @@ nmap -Pn 10.10.11.152
 ```
 
 {{< image src="images/nmap-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-![[Pasted image 20240628144242.png]]
+
 
 On peut aussi utiliser l'option `-sV` pour en apprendre davantage sur les versions des services ouverts sur la machine :
 
@@ -60,7 +60,7 @@ nmap -sV -Pn 10.10.11.152
 ```
 
 {{< image src="images/nmap-sV-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-![[Pasted image 20240628144307.png]]
+
 
 Ici, nous pouvons voir plusieurs ports, tous liés à l'environnement Windows tel que kerberos et smb.
 {{< /tab >}}
