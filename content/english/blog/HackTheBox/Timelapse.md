@@ -1,8 +1,8 @@
 ---
-title: Timelapse
+title: Hack The Box - Timelapse
 meta_title: ""
 description: La box Timelapse est une box Windows proposée par Hack The Box. Elle permet de travailler de façon réaliste l'infiltration dans un environnement Windows.
-date: 2024-28-06T16:00:00Z
+date: 2024-05-28T04:00:00Z
 image: /images/Timelapse.png
 categories:
   - Réaliste
@@ -10,7 +10,7 @@ categories:
 author: Emma.exe
 tags:
   - realiste
-  - smb
+  - SMB
   - LAPS
   - brute-force
 draft: false
@@ -51,7 +51,6 @@ nmap -Pn 10.10.11.152
 ```
 
 {{< image src="images/nmap-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-
 
 On peut aussi utiliser l'option `-sV` pour en apprendre davantage sur les versions des services ouverts sur la machine :
 
