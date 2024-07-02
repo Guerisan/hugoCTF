@@ -4,7 +4,7 @@ title: Forensic - Analyse de fichiers images disques Windows
 meta_title: ""
 description: Méthodologie d'analyse forensic pour les fichiers images Windows
 date: 2024-07-01T05:00:00Z
-image: /images/forensic.svg
+image: /images/forensic.png
 categories:
   - Méthodes
 author: Emma.exe
