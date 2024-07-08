@@ -2,7 +2,7 @@
 title: Root-me - Windows - LDAP User ASRepRoastable
 meta_title: ""
 description: Trouvez l'utilisateur vulnérable à AsRepRoastable.
-date: 2024-08-07T05:00:00Z
+date: 2024-07-07T05:00:00Z
 image: /images/rootme_logo.png
 categories:
   - Forensic
@@ -10,7 +10,8 @@ categories:
 author: Emma.exe
 tags:
   - Forensic
-  - Rootme
+  - Windows
+  - Kerberos
 draft: false
 ---
 
