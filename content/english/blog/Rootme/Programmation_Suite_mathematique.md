@@ -1,0 +1,68 @@
+---
+title: Rootme - Suite mathématique
+meta_title: ""
+description: this is meta description
+date: 2024-07-08T05:00:00Z
+image: /images/rootme_logo.png
+categories:
+  - Rootme
+  - Facile
+author: Alexis
+tags:
+  - programmation
+draft: false
+---
+
+# Niveau 0
+Ce challenge propose d'automatiser la résolution de suite mathématique
+
+# Niveau 1
+Pour résoudre ce challenge, la librairie "requests" de Python peut être utile.
+Les étapes du challenge :
+- Faire une requête GET pour récupérer l’énoncé
+- Récupérer les valeurs de l'énoncé
+- Trouver une formule permettant de calculer la valeur d'un élément d'une liste
+- Calculer la valeur de l'élément de la liste
+- Envoyer la réponse avec une requête GET (faire attention aux cookies)
+
+# Niveau 2
+``` python
+import requests
+
+# Get challenge
+x = requests.get("http://challenge01.root-me.org/programmation/ch1/")
+print(x.text)
+
+# Get cookie
+for cookie in x.cookies:
+	cookie_name = cookie.name
+	cookie_value = cookie.value
+print("\n")
+
+# Get challenge data
+u_arithm = x.text.split("[")[1].split("]")[0]
+r = int(u_arithm.split("+")[0].strip())
+n = int(x.text.split("You must find U<sub>")[1].split("</sub>")[0])
+u0 = int(x.text.split("U<sub>0</sub> = ")[1].split("\n")[0])
+suppl = x.text.split("]")[1]
+sign_suppl = suppl.split("[")[0].strip()
+n_suppl = int(suppl.split("*")[1].strip())
+
+# Formule
+#Un+1 = (a + Un) + (n * b)
+#Un = u0 + an + (bn²)/2 - (bn)/2
+
+#Un+1 = (a + Un) - (n * b)
+#Un = u0 + an - (bn²)/2 + (bn)/2
+
+# Calcul
+if sign_suppl == "+":
+	Un = u0 + (r*n) + (n_suppl * n * n)/2 - (n_suppl * n)/2
+elif sign_suppl == "-":
+	Un = u0 + (r*n) - (n_suppl * n * n)/2 + (n_suppl * n)/2
+
+# Send result with cookie
+x = requests.get("http://challenge01.root-me.org/programmation/ch1/ep1_v.php?result="+str(int(Un)), cookies = {cookie_name: cookie_value})
+print(x.text)
+
+```
