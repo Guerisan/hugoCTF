@@ -6,10 +6,12 @@ date: 2024-04-04T05:00:00Z
 image: /images/rootme_logo.png
 categories:
   - Forensic
-  - Facile
+  - Moyen
 author: Emma.exe
 tags:
   - forensic
+  - windows
+  - kerberos
 draft: false
 ---
 
