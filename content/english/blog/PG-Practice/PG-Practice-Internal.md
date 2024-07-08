@@ -172,7 +172,7 @@ search exploit ms09_050_smb2_negotiate_func_index
 ```
 
 Il devrait normalement apparaitre dans la recherche. 
-{{< image src="images/PG-Internal-msfconsole-search.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
+
 On récupère son chemin et on tape la commande :
 
 ```sh
@@ -183,9 +183,6 @@ On affiche les options que nécessite l'exploit pour fonctionner en tapant la co
 ```sh
 show options
 ```
-
-{{< image src="images/PG-Internal-msfconsole-options.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-
 On voit deux options requises qui ne sont automatiquement renseignée ou qu'il faut modifier : l'hôte distant (Remote Host) et l'hôte qui va réceptionner le shell (Listen Host).
 
 On configure les options comme suit : 

