@@ -2,7 +2,7 @@
 title: Rootme - Windows - LDAP User KerbeRoastable
 meta_title: ""
 description: Le challenge Root-me Windows - LDAP User KerbeRoastable est un challenge Forensic qui consiste en l'exploration d'un fichier JSON extrait d'un AD afin de retrouver les comptes kerberoastable.
-date: 2024-04-04T05:00:00Z
+date: 2024-07-07T05:00:00Z
 image: /images/rootme_logo.png
 categories:
   - Forensic
