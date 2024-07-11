@@ -14,10 +14,10 @@ draft: false
 ---
 
 # Niveau 0
-Ce challenge propose d'automatiser la résolution de suite mathématique
+Ce challenge propose d'automatiser la résolution de polynômes du second degré
 
 # Niveau 1
-Pour résoudre ce challenge, la librairie "requests" de Python peut être utile.
+Pour résoudre ce challenge, les librairies "requests" de Python peut être utile.
 Les étapes du challenge :
 - Faire une requête GET pour récupérer l’énoncé
 - Récupérer les valeurs de l'énoncé
