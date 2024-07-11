@@ -1,0 +1,84 @@
+---
+title: Rootme - La roue romaine
+meta_title: ""
+description: this is meta description
+date: 2024-06-05T05:00:00Z
+image: /images/rootme_logo.png
+categories:
+  - Rootme
+  - Facile
+author: Alexis
+tags:
+  - programmation
+  - réseau
+draft: false
+---
+
+
+# Niveau 0
+Ce challenge permet de pratiquer la connexion à une socket réseau et de décoder une chaîne de caractères.
+
+# Niveau 1
+Pour résoudre ce challenge, les librairies "socket" et "codecs" de Python peuvent être utiles.
+Les étapes du challenge :
+- Se connecter à la socket réseau
+- Récupérer la chaîne encodée
+- Décoder la chaîne de caractère
+- Envoyer la chaîne décodée
+
+# Niveau 2
+Les étapes du programme à faire sont données dans l’énoncé du challenge :
+- Se connecter à un programme sur une socket réseau
+- Vous devez décoder la chaîne de caractères encodée en ROT13 envoyée par le programme.  
+- Vous avez 2 secondes pour envoyer la bonne réponse à partir du moment où le programme vous envoie la chaîne.  
+- La réponse doit être envoyée sous la forme de string.
+
+## Se connecter à un programme sur une socket réseau
+### Connexion au challenge
+``` python
+server = "challenge01.root-me.org"
+port = 52021
+
+#init connection
+irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+irc.connect((server,port))
+```
+
+### Récupération des informations du challenge
+``` python
+#get chall values
+data = irc.recv(4096).decode()
+```
+On obtient ceci :
+``` python
+
+=============
+ ROMAN WHEEL
+=============
+Tell me the clear content of this string !
+
+my string is 'lOuSgmHESOsxHyX8N0QerSpqkrj5N'. What is your answer ?
+```
+
+## Décoder la chaîne de caractères
+### Extraire la chaîne de caractères
+``` python
+encoded = data.split("'")[1]
+```
+
+### Décoder la chaîne
+``` python
+string = codecs.decode(encoded,'rot_13')
+```
+
+## Envoyer la réponse
+``` python
+#Send result
+irc.send(string.encode()+b"\n")
+```
+
+### Récupérer le flag
+``` python
+data = irc.recv(4096).decode()
+print(data)
+```
