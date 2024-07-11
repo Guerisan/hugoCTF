@@ -1,28 +1,28 @@
-
 ---
-title: Root-me - Oh My Grub 
+title: Root-me - Oh My Grub 2
 meta_title: ""
-description: Retrouvez les dossiers de cette machine Linux sans avoir le mot de passe.
-date: 2024-07-10T05:00:00Z
+description: Retrouver des fichiers sur une image OVA
+date: 2024-07-11T05:00:00Z
 image: /images/rootme_logo.png
 categories:
-  - Forensic
+  - Rootme
   - Facile
+  - Forensic
 author: Professeur_Jack
 tags:
-  - Forensic
-  - Rootme
-  - Linux
+  - forensic
+  - ova
 draft: false
+isSecret: true
 ---
-
-{{< notice "tip" >}} Ceci est une résolution alternative à la [solution proposée par Emma.txt](blog/rootme/rootme-ohmygrub/). N'hésitez-pas à y jeter un coup d'oeil avant ! {{< /notice >}}
+ {{< notice "tip" >}} Ceci est une résolution alternative à la [solution proposée par Emma.txt](blog/rootme/rootme-ohmygrub/). N'hésitez-pas à y jeter un coup d'oeil avant ! {{< /notice >}}
 
 [Lien du challenge](https://www.root-me.org/fr/Challenges/Forensic/Oh-My-Grub)
 
 Les accès à un serveur ont été perdus, mais les fichiers qui se trouvaient dessus sont toujours convoités.
 On nous fournit l'image virtuelle de la machine (un fichier au format **.ova**)
 S'il n'est pas chiffré, on va essayer d'extraire le disque pour monter le Filesystem sur notre propre machine et l'explorer tranquillement.
+
 ## A partir du fichier .ova
 
 OVA est un format de compression, on va commencer par l'extraire
@@ -118,3 +118,5 @@ chmod 400 .passwd
 On voit que le fichier .passwd a probablement été modifié. Il n'y a plus qu'à l'ouvrir et....
 
 Flag !
+
+F1aG-M3_PlEas3:)

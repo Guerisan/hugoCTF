@@ -50,3 +50,7 @@ Pour la résolution de ce challenge je vous propose deux niveaux d'aide :
 
 {{< /tab >}}
 {{< /tabs >}}
+
+Il existe encore une autre manière de parvenir à nos fins :
+
+{{< button label="Entrez le flag pour voir la solution alternative" class="level-3" link="/" style="solid" >}}
