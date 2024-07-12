@@ -1,5 +1,5 @@
 ---
-title: Rootme - Suite mathématique
+title: Rootme - Solveur polynôme du second degré
 meta_title: ""
 description: this is meta description
 date: 2024-07-08T05:00:00Z
