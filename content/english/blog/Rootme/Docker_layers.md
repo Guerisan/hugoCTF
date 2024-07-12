@@ -76,7 +76,7 @@ f3f
 
 On sait qu'on cherche un fichier de mot de passe.
 
-{< notice "tip" >}} Pour dégrossir, j'utilise mon outil de recherche de prédilection [ripgrep](https://github.com/BurntSushi/ripgrep), pour trouver toutes les mentions de la chaine "*pass*" {{< /notice >}}
+{{< notice "tip" >}} Pour dégrossir, j'utilise mon outil de recherche de prédilection [ripgrep](https://github.com/BurntSushi/ripgrep), pour trouver toutes les mentions de la chaine "*pass*" {{< /notice >}}
 
 Et effectivement, au sein du fichier `b324f85f8104bfebd1ed873e90437c0235d7a43f025a047d5695fe461da717c6.json`, qui contient toutes les informations détaillées de l'image et comment elle a été construite. 
 On trouve notamment cette instruction :

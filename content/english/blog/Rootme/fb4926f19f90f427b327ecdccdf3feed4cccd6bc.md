@@ -5,13 +5,8 @@ description: Retrouver des fichiers sur une image OVA
 date: 2024-07-11T05:00:00Z
 image: /images/rootme_logo.png
 categories:
-  - Rootme
-  - Facile
-  - Forensic
 author: Professeur_Jack
 tags:
-  - forensic
-  - ova
 draft: false
 isSecret: true
 ---
