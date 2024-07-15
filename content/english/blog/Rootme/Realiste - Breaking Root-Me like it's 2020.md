@@ -17,6 +17,7 @@ tags:
   - cms
   - privilege-escalation
 draft: false
+isSecret: true
 ---
 
 ## Description
