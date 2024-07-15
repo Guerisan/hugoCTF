@@ -103,3 +103,10 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+
+Grâce à ce script, on trouve rapidement les valeurs de `a` et `b` qui permettent de déchiffrer le flag :
+
+```text
+a=19, b=6
+404CTF{Th3_r3vEnGE_1S_c0minG_S0oN_4nD_w1Ll_b3_TErRiBl3_!}
+```
