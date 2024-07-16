@@ -15,6 +15,7 @@ tags:
   - Linux
 draft: false
 ---
+## Introduction 
 
 Dans ce challenge root-me, notre société a perdu les accès à un serveur Linux.
 On nous demande de retrouver des documents importants.
@@ -28,6 +29,8 @@ Pour la résolution de ce challenge je vous propose deux niveaux d'aide :
 - Le deuxième niveau qui présente un exemple de résolution.
 
 {{< notice "tip" >}} Essayez de ne pas regarder la solution si vous voulez vraiment progresser. Une fois le challenge résolu, il peut être intéressant de la regarder pour apprendre de nouvelles techniques ! {{< /notice >}}
+
+## Résolution 
 
 {{< tabs >}} {{< tab "Niveau 1" >}}
 
