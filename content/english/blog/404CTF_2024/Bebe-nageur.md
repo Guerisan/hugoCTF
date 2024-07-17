@@ -50,9 +50,9 @@ print(encrypt(FLAG,a,b,n))
 # ENCRYPTED FLAG : -4-c57T5fUq9UdO0lOqiMqS4Hy0lqM4ekq-0vqwiNoqzUq5O9tyYoUq2_
 ```
 
-### Exploitation
+## Exploitation
 
-#### Analyse du chiffrement
+### Analyse du chiffrement
 
 Le challenge est un script Python qui chiffre un message caractère par caractère avec la fonction `f`.
 Il s'agit d'un chiffrement affine, une méthode de chiffrement par substitution mono-alphabétique qui utilise une fonction de la forme `f(x) = (ax + b) mod n`.
@@ -61,7 +61,7 @@ Ici, `a` et `b` sont des entiers choisis au hasard, et `n` est la taille de l'al
 
 Le flag chiffré est également fourni : `-4-c57T5fUq9UdO0lOqiMqS4Hy0lqM4ekq-0vqwiNoqzUq5O9tyYoUq2_`.
 
-#### Attaque par force brute
+### Attaque par force brute
 
 Vu la petite taille de l'alphabet, on peut facilement casser le chiffrement par force brute. En effet, `n = 67`, il y a donc seulement `n * (n-1) = 4422` combinaisons possibles pour `a` et `b`.
 
