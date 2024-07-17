@@ -1,93 +1,14 @@
-<h1 align="center">Hugo + Tailwind CSS Starter and Boilerplate</h1>
+<h1 align="center">Hugoctf by LeGroupe4 - 2600</h1>
 
-<p align="center">Hugoplate is a free starter template built with Hugo, and TailwindCSS, providing everything you need to jumpstart your Hugo project and save valuable time.</p>
-
-<p align="center">Made with ♥ by <a href="https://zeon.studio/"> Zeon Studio</a></p>
-<p align=center> If you find this project useful, please give it a ⭐ to show your support.</p>
-
-<h2 align="center"> <a target="_blank" href="https://zeon.studio/preview?project=hugoplate" rel="nofollow">👀 Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-hugoplate-netlify-app/6lyxjw6t4r?form_factor=desktop">Page Speed (95+)🚀</a>
-</h2>
-
-<p align="center">
-  <a href="https://github.com/gohugoio/hugo/releases/tag/v0.126.0" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=min-HUGO-version&message=0.126.0&color=f00&logo=hugo" />
-  </a>
-
-  <a href="https://github.com/zeon-studio/hugoplate/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zeon-studio/hugoplate" alt="license">
-  </a>
-
-  <a href="https://github.com/zeon-studio/hugoplate">
-    <img src="https://img.shields.io/github/languages/code-size/zeon-studio/hugoplate" alt="code size">
-  </a>
-
-  <a href="https://github.com/zeon-studio/hugoplate/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zeon-studio/hugoplate" alt="contributors">
-  </a>
-</p>
-
-## 🎁 What's Included
-
-We have included almost everything you need to start your Hugo project. Let's see what's included in this template:
-
-### 📌 Key Features
-
-- 👥 Multi-Authors
-- 🎯 Similar Posts Suggestion
-- 🔍 Search Functionality
-- 🌑 Dark Mode
-- 🏷️ Tags & Categories
-- 🔗 Netlify setting pre-configured
-- 📞 Support contact form
-- 📱 Fully responsive
-- 📝 Write and update content in Markdown
-- 💬 Disqus Comment
-- 🔳 Syntax Highlighting
-
-### 📄 15+ Pre-designed Pages
-
-- 🏠 Homepage
-- 👤 About
-- 📞 Contact
-- 👥 Authors
-- 👤 Author Single
-- 📝 Blog
-- 📝 Blog Single
-- 🚫 Custom 404
-- 💡 Elements
-- 📄 Privacy Policy
-- 🏷️ Tags
-- 🏷️ Tag Single
-- 🗂️ Categories
-- 🗂️ Category Single
-- 🔍 Search
-
-### 📦 Tech Stack
-
-- [Hugo](https://gohugo.io/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [PostCSS](https://postcss.org/)
-- [PurgeCSS](https://purgecss.com/)
-- [AutoPrefixer](https://autoprefixer.github.io/)
-- [Hugo Modules](https://gohugo.io/hugo-modules/) by [Gethugothemes](https://gethugothemes.com/hugo-modules)
-- [Markdown](https://markdownguide.org/)
-- [Prettier](https://prettier.io/)
-- [Jshint](https://jshint.com/)
-- [Netlify](https://www.netlify.com/)
-- [Vercel](https://vercel.com/)
-- [Github Actions](https://github.com/features/actions)
-- [Gitlab Ci](https://docs.gitlab.com/ee/ci/)
-- [AWS Amplify](https://aws.amazon.com/amplify/)
-
----
+<p align="center">Ce dépôt contient toutes les sources nécessaires à la construction de notre site web : Capture the Flag for Beginners 🚩</p>
 
 ## 🚀 Getting Started
 
-First you need to [clone](https://github.com/zeon-studio/hugoplate) or [download](https://github.com/zeon-studio/hugoplate/archive/refs/heads/main.zip) the template repository, and then let's get started with the following process:
+Tout d'abord, vous devez cloner ce repo. 
 
 ### ⚙️ Prerequisites
 
-To start using this template, you need to have some prerequisites installed on your machine.
+Pour commencer à utiliser ce template en local, vous devez avoir installé certains prérequis sur votre machine.
 
 - [Hugo Extended v0.124+](https://gohugo.io/installation/)
 - [Node v20+](https://nodejs.org/en/download/)
@@ -95,15 +16,13 @@ To start using this template, you need to have some prerequisites installed on y
 
 ### 👉 Project Setup
 
-We build this custom script to make your project setup easier. It will create a new Hugo theme folder, and clone the Hugoplate theme into it. Then move the exampleSite folder into the root directory. So that you can start your Hugo server without going into the exampleSite folder. Use the following command to setup your project.
-
 ```bash
 npm run project-setup
 ```
 
-### 👉 Install Dependencies
+### 👉 Installation des dépendances
 
-Install all the dependencies using the following command.
+Installez toutes les dépendances à l'aide de la commande suivante.
 
 ```bash
 npm install
@@ -111,129 +30,169 @@ npm install
 
 ### 👉 Development Command
 
-Start the development server using the following command.
+Démarrez le serveur de développement à l'aide de la commande suivante.
 
 ```bash
 npm run dev
 ```
-
-### 🎬 Still Confused? Watch a Quick Video
-
-https://github.com/zeon-studio/hugoplate/assets/58769763/c260c0ae-91be-42ce-b8db-aa7f11f777bd
-
----
-
-## 📝 Customization
-
-This template has been designed with a lot of customization options in mind. You can customize almost anything you want, including:
-
-### 👉 Site Config
-
-You can change the site title, base URL, language, theme, plugins, and more from the `hugo.toml` file.
-
-### 👉 Site Params
-
-You can customize all the parameters from the `config/_default/params.toml` file. This includes the logo, favicon, search, SEO metadata, and more.
-
-### 👉 Colors and Fonts
-
-You can change the colors and fonts from the `data/theme.json` file. This includes the primary color, secondary color, font family, and font size.
-
-### 👉 Social Links
-
-You can change the social links from the `data/social.json` file. Add your social links here, and they will automatically be displayed on the site.
-
----
-
-## 🛠 Advanced Usage
-
-We have added some custom scripts to make your life easier. You can use these scripts to help you with your development.
-
-### 👉 Update Theme
-
-If you want to update the theme, then you can use the following command. It will update the theme to the latest version.
-
-```bash
-npm run update-theme
-```
-
-> **Note:** This command will work after running `project-setup` script.
-
-### 👉 Update Modules
-
-We have added a lot of modules to this template. You can update all the modules using the following command.
-
-```bash
-npm run update-modules
-```
-
-### 👉 Remove Dark Mode
-
-If you want to remove dark mode from your project, you can use the following command to remove dark mode from your project.
-
-```bash
-npm run remove-darkmode
-```
-
-> **Note:** This command will work before running `project-setup` script. If you already run the `project-setup` command, then you have to run `npm run theme-setup` first, and then you can run this command. afterward, you can run `npm run project-setup` again.
-
 ---
 
 ## 🚀 Build And Deploy
 
-After you finish your development, you can build or deploy your project almost everywhere. Let's see the process:
+Après avoir terminé votre développement, vous pouvez construire ou déployer votre projet presque partout. Voyons le processus :
 
 ### 👉 Build Command
 
-To build your project locally, you can use the following command. It will purge all the unused CSS and minify all the files.
+Pour construire votre projet localement, vous pouvez utiliser la commande suivante. Elle purgera tous les CSS inutilisés et minifiera tous les fichiers.
 
 ```bash
 npm run build
 ```
 
-### 👉 Deploy Site
+### 👉 Déployer le site avec Github Action 
 
-We have provided 5 different deploy platform configurations with this template, so you can deploy easily.
+Nous avons fait le choix d'utiliser Github Action pour rendre accessible ce site. 
+Voici les étapes que nous avons réalisées : 
 
-- [Netlify](https://www.netlify.com/)
-- [Vercel](https://vercel.com/)
-- [Github Actions](https://github.com/features/actions)
-- [Gitlab Ci](https://docs.gitlab.com/ee/ci/)
-- [AWS Amplify](https://aws.amazon.com/amplify/)
+Visit your GitHub repository. From the main menu choose **Settings** > **Pages**. In the center of your screen you will see this => Change the **Source** to `GitHub Actions`. The change is immediate; you do not have to press a Save button.
 
-And if you want to Host some other hosting platforms. then you can build your project, and you will get a `public` folder. that you can copy and paste on your hosting platform.
+La commande `npm run project-setup` à déjà ajouté un fichier de Workflow sous `.github/workflows`. 
 
-> **Note:** You must change the `baseURL` in the `hugo.toml` file. Otherwise, your site will not work properly.
+Il ne reste plus qu'à commit, puis regarder dans "Actions" sur github si le build de la pipeline s'est bien passé.  
 
 ---
 
-## 🔒 Guide to Staying Compliant
+## 📝 Edition d'un article !
 
-### 🐞 Reporting Issues
+Tous les markdowns sont contenus dans le seul dossier **content/**. 
+C'est notre dossier de travail principal.
 
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/zeon-studio/hugoplate/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/zeon-studio/hugoplate/issues).
+```
+➤ tree
+english
+    ├── about
+    │   └── _index.md
+    ├── authors
+    │   ├── _index.md
+    │   ├── john-doe.md
+    │   ├── sam-wilson.md
+    │   └── william-jacob.md
+    ├── blog
+    │   ├── forensic-darts
+    │   │   ├── assets/image-1.jpeg
+    │   │   └── Forensic.md
+    │   ├── _index.md
+    │   ├── post-1.md
+    │   └── post-2.md
+    └─── contact
+        └── _index.md
 
-### 📝 License
+```
 
-Copyright (c) 2023 - Present, Designed & Developed by [Zeon Studio](https://zeon.studio/)
+Pour ajouter un write-up, il suffit de de partir d'un fichier markdown vierge, puis d'ajouter ces métadonnées au sommet du fichier :
 
-**Code License:** Released under the [MIT](https://github.com/zeon-studio/hugoplate/blob/main/LICENSE) license.
-
-**Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
-
+```toml
 ---
-
-## 🖼️ Showcase
-
-List of some projects people are building with **Hugoplate**!
-
-| [![Open Neuromorphic](https://tinyurl.com/hp7avtje)](https://open-neuromorphic.org/) | [![AI Models](https://tinyurl.com/mu4p7dhb)](https://aimodels.org/) | [![Hugobricks](https://tinyurl.com/4x3uwhm9)](https://www.hugobricks.preview.usecue.com/) | [![ONO LLC](https://tinyurl.com/2fbjzwzn)](https://ono.day/)
-|:---:|:---:|:---:|:---:|
-| **Open Neuromorphic** | **AI Models** | **Hugobricks** | **ONO LLC** |
-
+title: Awesome forensic lvl 1
+meta_title: ""
+description: this is meta description
+date: 2024-04-04T05:00:00Z
+image: /images/image-placeholder.png
+categories:
+  - Application
+  - Data
+author: John Doe
+tags:
+  - forensic
+  - volatility
+draft: false
 ---
+```
 
-## 💻 Need Customization?
+## 🔒 Protéger une page avec un mot de passe
 
-If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://zeon.studio/estimate-project).
+Nous utilisons un petit script qui nous sert à entrer des mots de passe pour accéder aux write-ups protégés.
+
+Ajouter le contenu suivant à la fin du fichier `themes/hugoplate/assets/js/main.js`
+
+```js
+
+async function sha1(message) {
+  // Convert the message string to a Uint8Array
+  const msgBuffer = new TextEncoder().encode(message);
+
+  // Hash the message
+  const hashBuffer = await crypto.subtle.digest('SHA-1', msgBuffer);
+
+  // Convert ArrayBuffer to Array
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+  // Convert bytes to hex string
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return hashHex;
+}
+
+let button = document.getElementsByClassName('level-3');
+
+if (button) {
+  button[0].addEventListener('click', function (e) {
+    e.preventDefault();
+    let password = prompt("The password :");
+    console.log(password)
+    login(password)
+  })
+}
+
+function login(secret) {
+  sha1(secret).then(hash => {
+    console.log("hash:", hash);
+    const currentUrl = window.location.pathname;
+    let newUrl = currentUrl.replace(/\/[^\/]*\/?$/, "");
+    const url = newUrl + "/" + hash;
+    var request = new XMLHttpRequest();
+    request.open('GET', url, true);
+    console.log("Good");
+    request.onload = function () {
+      if (request.status >= 200 && request.status < 400) {
+        window.location = window.location.origin + url;
+      } else {
+        alert("Password Incorrect");
+      }
+    };
+    request.send();
+  }).catch(error => {
+    console.error("Error hashing password:", error);
+  });
+}
+
+```
+
+A présent, on peut générer un *sha1* à partir d'un mot de passe ou d'un flag qui servira d'url secrète aux write-ups de notre choix. 
+
+Prenons cet exemple :
+```bash
+echo -n "password" | openssl sha1
+cb1dc474e185777dad218b7d60f2781723d8190b // Nom de write-up secret
+```
+
+imaginons que password soit le **mot de passe** secret du write-up que nous voulons protéger. Le nom du fichier en question à protéger devra alors être `cb1dc474e185777dad218b7d60f2781723d8190b.md`
+
+On peut ainsi ajouter ce bouton d'ouverture à volonté. Il permet d'ouvrir une boite de dialogue directement dans nos write-up (par exemple pour que les write-up de niveau 2 donnent accès aux niveau 3).
+
+Il suffit d'ajouter ce code dans le contenu de notre **write-up.mp**:
+
+```html
+{{< button label="Button" class="level-3" link="/" style="solid" >}}
+```
+
+Un clic sur ce bouton affichera donc un prompt dans lequel on peut entrer notre mot de passe (ou notre flag). 
+
+Si le hash de ce mot de passe correspond, nous serons redirigé vers l'url du write-up secret (où `url = sha1(password)`). Dans le cas contraire, l'utilisateur recevra un message d'erreur. 
+
+Enfin, pour masquer l'article (afin qu'il ne soit pas rajouté dans la liste des articles en clair), on rajoute la propriété `isSecret: true` dans les métadonnées que l'on retrouve dans l'entête d'un l'article.
+
+Pensez également à mettre **draft** à **true** pour que le post n'apparaisse pas dans la liste sur la page `/blog`.
+
+> Pour le moment, tous les write-ups secrets restent à la racine de `/blog`
+
+Le **nom du dossier** contenant l'article (`.md`) et ses assets **définit son chemin dans l'url**.
