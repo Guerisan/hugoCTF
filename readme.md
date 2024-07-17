@@ -35,6 +35,11 @@ Démarrez le serveur de développement à l'aide de la commande suivante.
 ```bash
 npm run dev
 ```
+
+L'url par défaut se trouve à http://localhost:1313
+
+Chaque modification faite dans les pages de contenu impacte automatiquement le résultat. Le site s'actualise tout seul.
+
 ---
 
 ## 🚀 Build And Deploy
@@ -54,9 +59,9 @@ npm run build
 Nous avons fait le choix d'utiliser Github Action pour rendre accessible ce site. 
 Voici les étapes que nous avons réalisées : 
 
-Visit your GitHub repository. From the main menu choose **Settings** > **Pages**. In the center of your screen you will see this => Change the **Source** to `GitHub Actions`. The change is immediate; you do not have to press a Save button.
+Visitez votre dépôt GitHub. Dans le menu principal, choisissez **Paramètres** > **Pages**. Au centre de votre écran, vous verrez ceci => Changez la **Source** en `GitHub Actions`. Le changement est immédiat, vous n'avez pas besoin d'appuyer sur le bouton Enregistrer.
 
-La commande `npm run project-setup` à déjà ajouté un fichier de Workflow sous `.github/workflows`. 
+La commande `npm run project-setup` à déjà ajoutée un fichier de Workflow sous `.github/workflows`. 
 
 Il ne reste plus qu'à commit, puis regarder dans "Actions" sur github si le build de la pipeline s'est bien passé.  
 
