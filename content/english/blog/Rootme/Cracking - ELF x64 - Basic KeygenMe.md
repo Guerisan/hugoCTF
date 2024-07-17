@@ -24,7 +24,7 @@ isSecret: true
 
 **Lien du challenge : [Cracking - ELF x64 - Basic KeygenMe](https://www.root-me.org/fr/Challenges/Cracking/ELF-x64-Basic-KeygenMe)**
 
-> #### Easy to reverse
+> #### Easy to reverse...
 >
 > Trouvez le serial pour l’utilisateur "root-me.org".
 >
