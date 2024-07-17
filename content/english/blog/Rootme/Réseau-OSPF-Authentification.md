@@ -26,7 +26,8 @@ Pour la résolution de ce challenge je vous propose deux niveaux d'aide :
 
 {{< notice "tip" >}} Essayez de ne pas regarder la solution si vous voulez vraiment progresser. Une fois le challenge résolu, il peut être intéressant de la regarder pour apprendre de nouvelles techniques ! {{< /notice >}}
 
-{{< tabs >}} {{< tab "Niveau 1" >}}
+{{< tabs >}}
+{{< tab "Niveau 1" >}}
 
 OSPF est un protocole de routage qui supporte trois types d'authentification :
 - Null Authentification : Pas d'authentification
@@ -44,6 +45,8 @@ Vous pouvez tout aussi bien créer un algorithme personnalisé afin d'extraire l
 Si vous choisissez cette option, prenez bien en compte le fait que le header OSPF contient également un champ "Auth Crypt Sequence Number" afin d'éviter les attaques par rejeu.
 
 {{< /tab >}}
+
+{{< tab "Niveau 2" >}}
 
 En faisant quelques recherches, on tombe sur cette ressource : https://github.com/shaheemirza/OSPFMD5Crack
 Cela nous guide afin d'extraire et cracker les hashes OSPF.
@@ -66,4 +69,5 @@ john net-md5-hashes.txt --wordlist=/usr/share/wordlists/rockyou.txt
 
 Et voilà !
 
-{{< /tab >}}{{< /tabs >}}
+{{< /tab >}}
+{{< /tabs >}}
