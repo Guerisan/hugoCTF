@@ -63,6 +63,12 @@ Visitez votre dépôt GitHub. Dans le menu principal, choisissez **Paramètres**
 
 La commande `npm run project-setup` à déjà ajoutée un fichier de Workflow sous `.github/workflows`. 
 
+Modifiez l'url de Base dans `./hugoCTF/hugo.toml`. 
+
+```
+baseURL = "https://guerisan.github.io/hugoCTF/"
+```
+
 Il ne reste plus qu'à commit, puis regarder dans "Actions" sur github si le build de la pipeline s'est bien passé.  
 
 ---
