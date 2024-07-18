@@ -17,6 +17,7 @@ tags:
   - cms
   - privilege-escalation
 draft: false
+isSecret: true
 ---
 
 ## Description
@@ -43,13 +44,13 @@ draft: false
 > - [https://thinkloveshare.com/en/hacking/rce_on_spip_and_root_me/](https://thinkloveshare.com/en/hacking/rce_on_spip_and_root_me/)
 >
 
-### Contexte
+## Contexte
 
 Il s'agit d'une faille qui a été découverte sur le site web de Root-Me en 2020. C'est un challenge de type RCE (Remote Code Execution) sur un serveur web. Le but est de trouver une faille permettant d'exécuter du code arbitraire sur le serveur distant, afin de lire le contenu du fichier `/flag.txt`.
 
-### Exploitation
+## Exploitation
 
-#### Premiers pas
+### Premiers pas
 
 Pour commencer, on démarre le challenge sur la plateforme CTF All The Day. Pour ma part, il est hébergé sur le serveur `ctf06.root-me.org`.
 
@@ -57,7 +58,7 @@ En visitant `http://ctf06.root-me.org/`, on peut voir que le site web du challen
 
 Vu qu'un compte de contributeur est fourni, on peut se connecter à l'interface de publication du CMS avec le login `goodguy@contrib.fr` et le mot de passe `StronkP4ZZ:)`.
 
-#### Exécution de code arbitraire : article de Laluka
+### Exécution de code arbitraire : article de Laluka
 
 Le second lien fourni dans l'énoncé pointe vers un article de blog qui explique comment l'auteur, Laluka, a réussi à exploiter plusieurs failles de sécurité sur le site web de Root-Me en 2020.
 Il a trouvé de multiples vulnérabilités, mais celle qui nous intéresse est la RCE détaillée [vers la fin](https://thinkloveshare.com/hacking/rce_on_spip_and_root_me/#xss-on-oups) de l'article.
@@ -119,7 +120,7 @@ drwxr-xr-x  14 root root       4096 Jan  9  2021 var
 
 Le fichier `/flag.txt` appartient à `root` et n'est accessible en lecture que pour son propriétaire. Il en va de même pour `/passwd`, nécessaire pour valider la box. Le seul moyen de lire ces fichiers est donc d'effectuer une élévation de privilèges.
 
-#### Shell interactif
+### Shell interactif
 
 Essayons déjà d'obtenir un shell interactif pour nous faciliter la tâche. Pour cela, on va utiliser `nc` pour ouvrir un *bind shell* sur le port 31337, par le biais d'une FIFO (named pipe) :
 
@@ -134,7 +135,7 @@ http://ctf06.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste
 On peut maintenant se connecter au shell interactif avec [pwncat]({{< ref "/outils/pwncat-cs/" >}}) :
 ![Shell interactif avec pwncat](/images/rootme2020/pwncat-1.png)
 
-#### Élévation de privilèges
+### Élévation de privilèges
 
 Essayons de trouver une faille d'élévation de privilèges grâce à LinPEAS :
 
