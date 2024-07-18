@@ -113,3 +113,7 @@ import scipy.io.wavfile as wav
 output_filename = "demodulated_signal.wav"
 wav.write(output_filename, sample_rate, filtered_signal.astype(np.float32))
 ```
+
+{{< notice "tip" >}}
+Quelle que soit la méthode, les options sont nombreuses, n'hésitez pas à changer les valeurs et les curseurs  pour obtenir le son le plus clair possible !
+{{< /notice >}}
