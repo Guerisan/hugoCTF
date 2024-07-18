@@ -61,7 +61,7 @@ ffuf -c -u http://IP_Cible/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-C
  `-u` pour la cible et `-w` pour la wordlist (Seclist est disponible sur [Github](https://github.com/danielmiessler/SecLists))
  `-mc` permet de filtrer la sortie sur les codes HTTP rettournés
 
-Pour plus d'informations, => Lien_article_ffuf_en_cours
+
 ### Virtual Hosts - Sous domaine
 
 Toujours avec `ffuf`, avec le header `HOST` de la requête HTTP : 
@@ -118,7 +118,6 @@ http://intranet.fsociety.hack:2600 [200 OK] Apache[2.4.59], Country[RESERVED][ZZ
 ```
 
 Ou encore des extensions de navigateur comme [Wappalyzer](https://www.wappalyzer.com/)
-## Exploitation / Escalation priv
 
 ## Énumération post escalation
 
